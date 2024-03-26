@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Around the World in Capital Cities</title>
+    <!-- Add your CSS link here -->
+</head>
+<body>
+    <header>
+        <h1>Around the World in Capital Cities</h1>
+        <!-- Navigation links/buttons for login, register, and quiz -->
+        <nav>
+            <ul>
+                <li><a href="{% url 'users:login' %}">Login</a></li>
+                <li><a href="{% url 'users:register' %}">Register</a></li>
+                <li><a href="{% url 'quiz:quiz_home' %}">Start Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Quiz section -->
+        <section id="quiz-section">
+            <!-- Quiz content will be dynamically loaded here -->
+        </section>
+
+        <!-- Login and registration forms -->
+        <section id="auth-section">
+            <div id="login-form" class="auth-form">
+                <h2>Login</h2>
+                <form action="{% url 'users:login' %}" method="post">
+                    {% csrf_token %}
+                    {{ login_form.as_p }}
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+
+            <div id="register-form" class="auth-form">
+                <h2>Register</h2>
+                <form action="{% url 'users:register' %}" method="post">
+                    {% csrf_token %}
+                    {{ registration_form.as_p }}
+                    <button type="submit">Register</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Footer content -->
+        <p>&copy; Around the World in Capital Cities</p>
+    </footer>
+
+    <!-- Add your JavaScript link here -->
+</body>
+</html>
